@@ -21,13 +21,7 @@
                     "default": "1000",
                     "label": "PGID",
                     "name": "PGID",
-                    "description": "Docker host group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "America/New_York",
-                    "label": "TZ",
-                    "name": "TZ",
-                    "description": "Server time zone in XXX format."
+                    "description": "Docker host user group ID. Obtain using 'id username'."
                 }
             ],
             "image": "linuxserver/nextcloud",
@@ -36,7 +30,7 @@
             "note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
             "platform": "linux",
             "ports": [
-                "443/443/tcp"
+                "443:443/tcp"
             ],
             "restart_policy": "unless-stopped",
             "title": "Nextcloud",
@@ -65,14 +59,14 @@
             "env": [
                 {
                     "default": "invoice.my.domain",
-                    "label": "APP_URL",
+                    "label": "Site URL",
                     "name": "APP_URL",
-                    "description": "Docker host user ID. Obtain using 'id username'."
+                    "description": "Full top-level URI for site."
                 },
                 {
-                    "label": "APP_KEY",
+                    "label": "Laravel APP_KEY",
                     "name": "APP_KEY",
-                    "description": "<< INFO ON HOW TO GET KEY >>"
+                    "description": "Run 'php artisan key:generate --show'. Record APP_KEY."
                 }
             ],
             "image": "invoiceninja/invoiceninja:alpine-4",
