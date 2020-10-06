@@ -1,4 +1,101 @@
-[
 {
+	"version": "2",
+	"templates": [
+		{
+			"categories": [
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host group ID. Obtain using 'id username'."
+				},
+				{
+                    "default": "America/New_York",
+					"label": "TZ",
+                    "name": "TZ",
+                    "description": "Server time zone in XXX format."
+				}
+            ],
+            "image": "linuxserver/nextcloud",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/nextcloud-icon.png",
+			"name": "nextcloud",
+			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
+			"platform": "linux",
+            "ports": [
+                "443/443/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+			"title": "Nextcloud",
+            "type": 1,
+            "volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Nextcloud/Config",
+					"container": "/config"
+                },
+                {
+					"bind": "/portainer/Files/AppData/Config/Nextcloud/Data",
+					"container": "/data"
+                }
+            ],
+            "command": "cp /data/domus_root_ca.crt /usr/share/ca-certificates/"
+        },
+        {
+			"categories": [
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"description": "Invoices, Expenses and Tasks built with Laravel and Flutter.",
+			"env": [
+				{
+					"default": "invoice.my.domain",
+					"label": "APP_URL",
+                    "name": "APP_URL",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+				},
+				{
+					"label": "APP_KEY",
+                    "name": "APP_KEY",
+                    "description": "<< INFO ON HOW TO GET KEY >>"
+				}
+            ],
+            "image": "invoiceninja/invoiceninja:alpine-4",
+			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/invoice_ninja.png",
+			"name": "invoice_ninja",
+			"note": "The database user is invoice_ninja and the database is ninja_db. Please generate an app key following the documentation \u003ca href='https://github.com/invoiceninja/dockerfiles'\u003ehere\u003c/a\u003e. ",
+			"platform": "linux",
+            "ports": [
+                "9000:9000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+			"title": "Invoice Ninja",
+            "type": 1,
+            "volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Invoice-Ninja/public",
+					"container": "/var/app/public"
+                },
+                {
+					"bind": "/portainer/Files/AppData/Config/Invoice-Ninja/storage",
+					"container": "/var/app/storage"
+                }
+            ]
+		}
+    ]
 }
-]
