@@ -58,7 +58,7 @@
             "description": "Invoices, Expenses and Tasks built with Laravel and Flutter.",
             "env": [
                 {
-                    "default": "invoice.my.domain",
+                    "default": "http://invoice.my.domain",
                     "label": "Site URL",
                     "name": "APP_URL",
                     "description": "Full top-level URI for site."
@@ -66,7 +66,7 @@
                 {
                     "label": "Laravel APP_KEY",
                     "name": "APP_KEY",
-                    "description": "Run 'php artisan key:generate --show'. Record APP_KEY. Or go to https://keygen.io and generate online."
+                    "description": "Enter key in base64 format. Generate key at https://www.base64encode.org/"
                 },
                 {
                     "default": "mysql",
@@ -97,7 +97,7 @@
             "image": "invoiceninja/invoiceninja:alpine-4",
             "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/invoice_ninja.png",
             "name": "invoice_ninja",
-            "note": "The database user is invoice_ninja and the database is ninja_db. Please generate an app key following the documentation \u003ca href='https://github.com/invoiceninja/dockerfiles'\u003ehere\u003c/a\u003e. ",
+            "note": "This package does not include a database. A separate database container and database configuration will be required for this container to operate. ",
             "platform": "linux",
             "ports": [
                 "9000:9000/tcp"
@@ -108,11 +108,11 @@
             "volumes": [
                 {
                     "bind": "/portainer/Files/AppData/Config/Invoice-Ninja/public",
-                    "container": "/var/app/public"
+                    "container": "/var/www/app/public"
                 },
                 {
                     "bind": "/portainer/Files/AppData/Config/Invoice-Ninja/storage",
-                    "container": "/var/app/storage"
+                    "container": "/var/www/app/storage"
                 }
             ]
         }
