@@ -93,7 +93,7 @@
                     "name": "DB_PASSWORD"
                 }
             ],
-            "image": "invoiceninja/invoiceninja:alpine-4",
+            "image": "invoiceninja/invoiceninja:latest",
             "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/invoice_ninja.png",
             "name": "invoice_ninja",
             "note": "This package does not include a database. A separate database container and database configuration will be required for this container to operate. ",
