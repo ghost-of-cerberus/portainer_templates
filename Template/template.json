@@ -44,8 +44,7 @@
                     "bind": "/portainer/Files/AppData/Config/Nextcloud/Data",
                     "container": "/data"
                 }
-            ],
-            "command": "cp /data/domus_root_ca.crt /usr/share/ca-certificates/"
+            ]
         },
         {
             "categories": [
@@ -66,7 +65,7 @@
                 {
                     "label": "Laravel APP_KEY",
                     "name": "APP_KEY",
-                    "description": "Enter key in base64 format. Generate key at https://www.base64encode.org/"
+                    "description": "Enter key in base64 format. Generate key at https://www.devglan.com/online-tools/aes-encryption-decryption/"
                 },
                 {
                     "default": "mysql",
@@ -100,7 +99,7 @@
             "note": "This package does not include a database. A separate database container and database configuration will be required for this container to operate. ",
             "platform": "linux",
             "ports": [
-                "9000:9000/tcp"
+                "9000:80/tcp"
             ],
             "restart_policy": "unless-stopped",
             "title": "Invoice Ninja",
@@ -108,11 +107,11 @@
             "volumes": [
                 {
                     "bind": "/portainer/Files/AppData/Config/Invoice-Ninja/public",
-                    "container": "/var/www/app/public"
+                    "container": "/var/app/public"
                 },
                 {
                     "bind": "/portainer/Files/AppData/Config/Invoice-Ninja/storage",
-                    "container": "/var/www/app/storage"
+                    "container": "/var/app/storage"
                 }
             ]
         }
