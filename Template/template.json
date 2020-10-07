@@ -66,7 +66,32 @@
                 {
                     "label": "Laravel APP_KEY",
                     "name": "APP_KEY",
-                    "description": "Run 'php artisan key:generate --show'. Record APP_KEY."
+                    "description": "Run 'php artisan key:generate --show'. Record APP_KEY. Or go to https://keygen.io and generate online."
+                },
+                {
+                    "default": "mysql",
+                    "label": "Database Type",
+                    "name": "DB_TYPE",
+                    "description": "Indicate if database is MySQL, Postgres, etc."
+                },
+                {
+                    "default": "invoice-ninja",
+                    "label": "Database Host",
+                    "name": "DB_HOST",
+                    "description": "FQDN or hostname of database server."
+                },
+                {
+                    "default": "InvoiceNinja",
+                    "label": "Database Name",
+                    "name": "DB_DATABASE"
+                },
+                {
+                    "label": "Database Username",
+                    "name": "DB_USERNAME"
+                },
+                {
+                    "label": "Database Password",
+                    "name": "DB_PASSWORD"
                 }
             ],
             "image": "invoiceninja/invoiceninja:alpine-4",
