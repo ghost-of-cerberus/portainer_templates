@@ -68,6 +68,12 @@
                     "description": "Enter key in base64 format. Generate key at https://www.devglan.com/online-tools/aes-encryption-decryption/"
                 },
                 {
+                    "default": "AES-256-CBC",
+                    "label": "Laravel APP_KEY Cipher",
+                    "name": "APP_CIPHER",
+                    "description": "Enter the cipher type used for the APP_KEY."
+                },
+                {
                     "default": "mysql",
                     "label": "Database Type",
                     "name": "DB_TYPE",
