@@ -74,13 +74,19 @@
                     "description": "Enter the cipher type used for the APP_KEY."
                 },
                 {
+                    "default": "172.18.4.0/24",
+                    "label": "Trusted Proxy Server(s)",
+                    "name": "TRUSTED_PROXIES",
+                    "description": "Comma separated list of proxy servers to allow. CIDR IP ranges accepted."
+                },
+                {
                     "default": "mysql",
                     "label": "Database Type",
                     "name": "DB_TYPE",
                     "description": "Indicate if database is MySQL, Postgres, etc."
                 },
                 {
-                    "default": "invoice-ninja",
+                    "default": "mariadb",
                     "label": "Database Host",
                     "name": "DB_HOST",
                     "description": "FQDN or hostname of database server."
