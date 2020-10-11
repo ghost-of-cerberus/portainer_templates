@@ -92,6 +92,12 @@
                     "description": "FQDN or hostname of database server."
                 },
                 {
+                    "default": "3306",
+                    "label": "Database Port",
+                    "name": "DB_PORT",
+                    "description": "Connection port of database server."
+                },
+                {
                     "default": "InvoiceNinja",
                     "label": "Database Name",
                     "name": "DB_DATABASE"
