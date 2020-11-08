@@ -3,6 +3,66 @@
     "templates": [
         {
             "categories": [
+                "Other",
+                "Tools"
+            ],
+            "description": "Another application bookmark dashboard, with fun features.",
+            "env": [
+                {
+                    "label": "URL Subdirectory",
+                    "name": "CONTEXT_PATH",
+                    "description": "Run in a subfolder. For example, to run at 'localhost:5000/dash'. Remove if not required."
+                }
+            ],
+            "image": "rmountjoy/dashmachine:latest",
+            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png",
+            "name": "dashmachine",
+            "platform": "linux",
+            "ports": [
+                "5000:5000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "DashMachine - Stable",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/portainer/Files/AppData/Config/DashMachine",
+                    "container": "/dashmachine/dashmachine/user_data"
+                }
+            ]
+        },
+        {
+            "categories": [
+                "Other",
+                "Tools"
+            ],
+            "description": "Another application bookmark dashboard, with fun features.",
+            "env": [
+                {
+                    "label": "URL Subdirectory",
+                    "name": "CONTEXT_PATH",
+                    "description": "Run in a subfolder. For example, to run at 'localhost:5000/dash'. Remove if not required."
+                }
+            ],
+            "image": "rmountjoy/dashmachine0.7:latest",
+            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png",
+            "name": "dashmachine-07",
+            "platform": "linux",
+            "ports": [
+                "5000:5000/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "DashMachine0.7 - Beta",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/portainer/Files/AppData/Config/DashMachine_07",
+                    "container": "/dashmachine/dashmachine/user_data"
+                }
+            ]
+        },
+        {
+            "categories": [
                 "Proxy",
                 "Tools"
             ],
@@ -139,7 +199,6 @@
                     "description": "Enter the cipher type used for the APP_KEY."
                 },
                 {
-                    "default": "172.18.4.0/24",
                     "label": "Trusted Proxy Server(s)",
                     "name": "TRUSTED_PROXIES",
                     "description": "Comma separated list of proxy servers to allow. CIDR IP ranges accepted."
@@ -151,7 +210,6 @@
                     "description": "Indicate if database is MySQL, Postgres, etc."
                 },
                 {
-                    "default": "mariadb",
                     "label": "Database Host",
                     "name": "DB_HOST",
                     "description": "FQDN or hostname of database server."
