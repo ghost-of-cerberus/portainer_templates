@@ -50,7 +50,7 @@
             "volumes": [
                 {
                     "bind": "/portainer/Files/AppData/Config/DashMachine_07",
-                    "container": "/dashmachine/dashmachine/user_data"
+                    "container": "/DashMachine/config"
                 }
             ]
         },
