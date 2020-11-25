@@ -40,7 +40,7 @@
                 "443:4443/tcp"
             ],
             "restart_policy": "unless-stopped",
-            "title": "jlesage - Nginx Proxy Manager",
+            "title": "Nginx Proxy Manager",
             "type": 1,
             "volumes": [
                 {
