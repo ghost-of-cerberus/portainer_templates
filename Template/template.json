@@ -26,59 +26,6 @@
         },
         {
             "categories": [
-                "Other",
-                "Tools"
-            ],
-            "description": "Another application bookmark dashboard, with fun features.",
-            "env": [
-                {
-                    "label": "URL Subdirectory",
-                    "name": "CONTEXT_PATH",
-                    "description": "Run in a subfolder. For example, to run at 'localhost:5000/dash'. Remove if not required."
-                }
-            ],
-            "image": "rmountjoy/dashmachine:latest",
-            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png",
-            "name": "dashmachine",
-            "platform": "linux",
-            "ports": [
-                "5000:5000/tcp"
-            ],
-            "restart_policy": "unless-stopped",
-            "title": "DashMachine - Stable",
-            "type": 1,
-            "volumes": [
-                {
-                    "bind": "/portainer/Files/AppData/Config/DashMachine",
-                    "container": "/dashmachine/dashmachine/user_data"
-                }
-            ]
-        },
-        {
-            "categories": [
-                "Other",
-                "Tools"
-            ],
-            "description": "Another application bookmark dashboard, with fun features.",
-            "image": "rmountjoy/dashmachine0.7:latest",
-            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/dashmachine_logo.png",
-            "name": "dashmachine-07",
-            "platform": "linux",
-            "ports": [
-                "5000:5000/tcp"
-            ],
-            "restart_policy": "unless-stopped",
-            "title": "DashMachine0.7 - Beta",
-            "type": 1,
-            "volumes": [
-                {
-                    "bind": "/portainer/Files/AppData/Config/DashMachine_07",
-                    "container": "/DashMachine/config"
-                }
-            ]
-        },
-        {
-            "categories": [
                 "Proxy",
                 "Tools"
             ],
@@ -94,31 +41,6 @@
             ],
             "restart_policy": "unless-stopped",
             "title": "jlesage - Nginx Proxy Manager",
-            "type": 1,
-            "volumes": [
-                {
-                    "bind": "/portainer/Files/AppData/Config/Nginx-Proxy",
-                    "container": "/config"
-                }
-            ]
-        },
-        {
-            "categories": [
-                "Proxy",
-                "Tools"
-            ],
-            "description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-            "image": "jc21/nginx-proxy-manager",
-            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/proxy_mgr.png",
-            "name": "nginx-proxy-manager",
-            "platform": "linux",
-            "ports": [
-                "80:8080/tcp",
-                "81:8181/tcp",
-                "443:4443/tcp"
-            ],
-            "restart_policy": "unless-stopped",
-            "title": "jc21 - Nginx Proxy Manager",
             "type": 1,
             "volumes": [
                 {
