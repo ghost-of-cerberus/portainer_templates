@@ -55,6 +55,38 @@
                 "Other"
             ],
             "description": "Software that allows you to listen to your own digital music in the same way you would with services like Spotify, Apple Music and others.",
+            "env": [
+                {
+                    "default": "1h",
+                    "label": "Scan Interval",
+                    "name": "ND_SCANINTERVAL",
+                    "description": "How frequently to scan for changes in your music library. Set it to 0 to disable scans."
+                },
+                {
+                    "default": "info",
+                    "label": "Log Level",
+                    "name": "ND_LOGLEVEL",
+                    "description": "Log level. Useful for troubleshooting. Possible values: error, info, debug, trace."
+                },
+                {
+                    "default": "24h",
+                    "label": "Session Timeout",
+                    "name": "ND_SESSIONTIMEOUT",
+                    "description": "How long Navidrome will wait before closing web ui idle sessions."
+                },
+                {
+                    "default": "",
+                    "label": "Base URL",
+                    "name": "ND_BASEURL",
+                    "description": "Base URL (only the path part) to configure Navidrome behind a proxy (ex: /music)."
+                },
+                {
+                    "default": "true",
+                    "label": "Transcoding Config",
+                    "name": "ND_ENABLETRANSCODINGCONFIG",
+                    "description": "Enables transcoding configuration in the UI. Should be disabled after configuration. Check Navidrome security recommendations."
+                }
+            ],    
             "image": "deluan/navidrome:latest",
             "logo": "https://github.com/navidrome/navidrome/blob/master/resources/logo-192x192.png?raw=true",
             "name": "navidrome",
@@ -67,9 +99,13 @@
             "type": 1,
             "volumes": [
                 {
-                    "bind": "/portainer/Files/AppData/Config/Grav",
-                    "container": "/var/www/html"
+                    "bind": "/portainer/Files/AppData/Config/Navidrome",
+                    "container": "/data"
                 }
+                {
+                    "bind": "/portainer/Files/AppData/Config/Navidrome/music",
+                    "container": "/music"
+                },
             ]
         },
         {
