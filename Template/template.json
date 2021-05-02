@@ -101,11 +101,11 @@
                 {
                     "bind": "/portainer/Files/AppData/Config/Navidrome",
                     "container": "/data"
-                }
+                },
                 {
                     "bind": "/portainer/Files/AppData/Config/Navidrome/music",
                     "container": "/music"
-                },
+                }
             ]
         },
         {
