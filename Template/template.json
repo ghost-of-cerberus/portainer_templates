@@ -58,14 +58,14 @@
             "env": [
                 {
                     "default": "1000",
-                    "label": "PUID",
-                    "name": "PUID",
+                    "label": "UID",
+                    "name": "UID",
                     "description": "Docker host user ID. Obtain using 'id username'."
                 },
                 {
                     "default": "1000",
-                    "label": "PGID",
-                    "name": "PGID",
+                    "label": "GID",
+                    "name": "GID",
                     "description": "Docker host user group ID. Obtain using 'id username'."
                 },
                 {
