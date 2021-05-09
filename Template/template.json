@@ -29,7 +29,7 @@
                 "Proxy",
                 "Tools"
             ],
-            "description": "(Alphine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+            "description": "(Alpine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
             "image": "jlesage/nginx-proxy-manager",
             "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/proxy_mgr.png",
             "name": "nginx-proxy-manager",
@@ -56,6 +56,18 @@
             ],
             "description": "Software that allows you to listen to your own digital music in the same way you would with services like Spotify, Apple Music and others.",
             "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
                 {
                     "default": "1h",
                     "label": "Scan Interval",
