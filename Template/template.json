@@ -117,7 +117,7 @@
                     "description": "Base URL (only the path part) to configure Navidrome behind a proxy (ex: /music)."
                 },
                 {
-                    "default": "true",
+                    "default": "false",
                     "label": "Transcoding Config",
                     "name": "ND_ENABLETRANSCODINGCONFIG",
                     "description": "Enables transcoding configuration in the UI. Should be disabled after configuration. Check Navidrome security recommendations."
