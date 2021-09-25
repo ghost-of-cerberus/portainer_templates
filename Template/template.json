@@ -25,29 +25,69 @@
             ]
         },
         {
-			"categories": [
-				"Other",
-				"Tools"
-			],
-			"description": "A clientless remote desktop gateway.",
-			"image": "oznu/guacamole:latest",
-			"logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/guacamole.png",
-			"name": "guacamole",
-			"note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
-			"platform": "linux",
-			"ports": [
-				"8080:8080/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Guacamole",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/Guacamole",
-					"container": "/config"
-				}
-			]
-		},
+            "categories": [
+		"Other",
+		"Tools"
+            ],
+            "description": "A clientless remote desktop gateway.",
+            "image": "oznu/guacamole:latest",
+            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/guacamole.png",
+            "name": "guacamole",
+            "note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
+            "platform": "linux",
+            "ports": [
+                "8080:8080/tcp"
+            ],
+            "restart_policy": "unless-stopped",
+            "title": "Guacamole",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/portainer/Files/AppData/Config/Guacamole",
+                    "container": "/config"
+                }
+            ]
+	},
+	{
+            "categories": [
+                "Internet",
+                "Other"
+            ],
+            "description": "DDClient is a Perl based IP update client for *nix based systems including Linux, FreeBSD and Mac OS X. It supports operating as a daemon as well as optimizes updates for multiple hostnames and aliases. https://ddclient.net",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "America/New_York",
+                    "label": "TZ",
+                    "name": "Time Zone",
+                    "description": "Set the time for the location of the container."
+                }
+            ],
+            "image": "gh0stofcerberos/ddclient:latest",
+            "logo": "https://www.labsrc.com/wp-content/uploads/2019/10/ddclient-logo-trans.png",
+            "name": "ddclient",
+            "platform": "linux",
+            "restart_policy": "always",
+            "title": "DDClient",
+            "type": 1,
+            "volumes": [
+                {
+                    "bind": "/portainer/Files/AppData/Config/DDClient",
+                    "container": "/etc/ddclient"
+                }
+            ]
+        },
         {
             "categories": [
                 "Proxy",
