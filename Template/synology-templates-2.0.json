@@ -1,1 +1,190 @@
-
+{
+    "version": "2",
+    "templates": [
+        {
+            "type": 1,
+            "title": "Grav",
+            "description": "Grav is not your average CMS. It's an open source, flat-file NoDB CMS written for PHP 7.1.3+ that is focused on being crazy fast, easy to learn and use, with powerful features to enable it be easily extended.",
+            "categories": [
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://getgrav.org/user/pages/media/grav-symbol.svg",
+            "image": "grav:latest",
+            "name": "",
+            "note": "Volume directory must be changed to separate name for each site.",
+            "ports": [
+                "80:80/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/grav/changeme",
+                    "container": "/var/www/html"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Guacamole",
+            "description": "A clientless remote desktop gateway.",
+            "categories": [
+                "Other",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/guacamole.png",
+            "image": "oznu/guacamole:latest",
+            "name": "guacamole",
+            "note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
+            "ports": [
+                "8080:8080/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/guacamole",
+                    "container": "/config"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "ddclient",
+            "description": "DDClient is a Perl based IP update client for *nix based systems including Linux, FreeBSD and Mac OS X. It supports operating as a daemon as well as optimizes updates for multiple hostnames and aliases. https://ddclient.net",
+            "categories": [
+                "Internet",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://www.labsrc.com/wp-content/uploads/2019/10/ddclient-logo-trans.png",
+            "image": "gh0stofcerberos/ddclient:latest",
+            "name": "ddclient",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "America/New_York",
+                    "label": "TZ",
+                    "name": "Time Zone",
+                    "description": "Set the time for the location of the container."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/ddclient",
+                    "container": "/etc/ddclient"
+                }
+            ],
+            "restart_policy": "always"
+        },
+        {
+            "type": 1,
+            "title": "Nginx Proxy Manager",
+            "description": "(Alpine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+            "categories": [
+                "Proxy",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/proxy_mgr.png",
+            "image": "gh0stofcerberos/nginx-proxy-manager:latest",
+            "name": "nginx-proxy-manager",
+            "ports": [
+                "80:8080/tcp",
+                "81:8181/tcp",
+                "443:4443/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/nginx-proxy-manager",
+                    "container": "/config"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Navidrome",
+            "description": "Software that allows you to listen to your own digital music in the same way you would with services like Spotify, Apple Music and others.",
+            "categories": [
+                "Music",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://github.com/navidrome/navidrome/blob/master/resources/logo-192x192.png?raw=true",
+            "image": "deluan/navidrome:latest",
+            "name": "navidrome",
+            "note": "Check Navidrome site for latest env variable options",
+            "ports": [
+                "4533:4533/tcp"
+            ],
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "UID",
+                    "name": "UID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "GID",
+                    "name": "GID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1h",
+                    "label": "Scan Interval",
+                    "name": "ND_SCANINTERVAL",
+                    "description": "How frequently to scan for changes in your music library. Set it to 0 to disable scans."
+                },
+                {
+                    "default": "info",
+                    "label": "Log Level",
+                    "name": "ND_LOGLEVEL",
+                    "description": "Log level. Useful for troubleshooting. Possible values: error, info, debug, trace."
+                },
+                {
+                    "default": "24h",
+                    "label": "Session Timeout",
+                    "name": "ND_SESSIONTIMEOUT",
+                    "description": "How long Navidrome will wait before closing web ui idle sessions."
+                },
+                {
+                    "default": "",
+                    "label": "Base URL",
+                    "name": "ND_BASEURL",
+                    "description": "Base URL (only the path part) to configure Navidrome behind a proxy (ex: /music)."
+                },
+                {
+                    "default": "false",
+                    "label": "Transcoding Config",
+                    "name": "ND_ENABLETRANSCODINGCONFIG",
+                    "description": "Enables transcoding configuration in the UI. Should be disabled after configuration. Check Navidrome security recommendations."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/navidrome/data",
+                    "container": "/data"
+                },
+                {
+                    "bind": "/volume1/docker/navidrome/music",
+                    "container": "/music"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        }
+    ]
+}
