@@ -40,7 +40,7 @@
             "volumes": [
                 {
                     "bind": "/volume1/docker/grav/changeme",
-                    "container": "/var/www/html"
+                    "container": "/config"
                 }
             ],
             "restart_policy": "unless-stopped"
