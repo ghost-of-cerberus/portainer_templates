@@ -11,11 +11,31 @@
             ],
             "platform": "linux",
             "logo": "https://getgrav.org/user/pages/media/grav-symbol.svg",
-            "image": "grav:latest",
+            "image": "linuxserver/grav:latest",
             "name": "",
             "note": "Volume directory must be changed to separate name for each site.",
             "ports": [
                 "80:80/tcp"
+            ],
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "TZ",
+                    "name": "Time Zone",
+                    "description": "Set the time for the location of the container."
+                }
             ],
             "volumes": [
                 {
@@ -75,7 +95,7 @@
                     "description": "Docker host user group ID. Obtain using 'id username'."
                 },
                 {
-                    "default": "America/New_York",
+                    "default": "Europe/London",
                     "label": "TZ",
                     "name": "Time Zone",
                     "description": "Set the time for the location of the container."
