@@ -54,16 +54,15 @@
             "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/Flame.png",
             "image": "pawelmalak/flame:latest",
             "name": "flame",
-            "note": "Volume directory must be changed to separate name for each site.",
             "ports": [
                 "5005:5005/tcp"
             ],
             "env": [
                 {
-                    "default": "P@$$w0rd",
-                    "label": "PASSWORD",
-                    "name": "Password",
-                    "description": "Enter Flame Password"
+                    "default": "P@ssw0rd",
+                    "label": "Password",
+                    "name": "PASSWORD",
+                    "description": "Enter Flame Login Password"
                 }
             ],
             "volumes": [
