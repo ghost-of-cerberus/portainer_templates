@@ -3,6 +3,79 @@
     "templates": [
         {
             "type": 1,
+            "title": "ddclient",
+            "description": "DDClient is a Perl based IP update client for *nix based systems including Linux, FreeBSD and Mac OS X. It supports operating as a daemon as well as optimizes updates for multiple hostnames and aliases. https://ddclient.net",
+            "categories": [
+                "Internet",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://www.labsrc.com/wp-content/uploads/2019/10/ddclient-logo-trans.png",
+            "image": "gh0stofcerberos/ddclient:latest",
+            "name": "ddclient",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "TZ",
+                    "name": "Time Zone",
+                    "description": "Set the time for the location of the container."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/ddclient",
+                    "container": "/etc/ddclient"
+                }
+            ],
+            "restart_policy": "always"
+        },
+        {
+            "type": 1,
+            "title": "Flame",
+            "description": "Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
+            "categories": [
+                "Tools",
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/Flame.png",
+            "image": "pawelmalak/flame:latest",
+            "name": "flame",
+            "note": "Volume directory must be changed to separate name for each site.",
+            "ports": [
+                "5005:5005/tcp"
+            ],
+            "env": [
+                {
+                    "default": "P@$$w0rd",
+                    "label": "PASSWORD",
+                    "name": "Password",
+                    "description": "Enter Flame Password"
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/flame",
+                    "container": "/app/data"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Grav",
             "description": "Grav is not your average CMS. It's an open source, flat-file NoDB CMS written for PHP 7.1.3+ that is focused on being crazy fast, easy to learn and use, with powerful features to enable it be easily extended.",
             "categories": [
@@ -68,46 +141,6 @@
                 }
             ],
             "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "ddclient",
-            "description": "DDClient is a Perl based IP update client for *nix based systems including Linux, FreeBSD and Mac OS X. It supports operating as a daemon as well as optimizes updates for multiple hostnames and aliases. https://ddclient.net",
-            "categories": [
-                "Internet",
-                "Other"
-            ],
-            "platform": "linux",
-            "logo": "https://www.labsrc.com/wp-content/uploads/2019/10/ddclient-logo-trans.png",
-            "image": "gh0stofcerberos/ddclient:latest",
-            "name": "ddclient",
-            "env": [
-                {
-                    "default": "1000",
-                    "label": "PUID",
-                    "name": "PUID",
-                    "description": "Docker host user ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "1000",
-                    "label": "PGID",
-                    "name": "PGID",
-                    "description": "Docker host user group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "Europe/London",
-                    "label": "TZ",
-                    "name": "Time Zone",
-                    "description": "Set the time for the location of the container."
-                }
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume1/docker/ddclient",
-                    "container": "/etc/ddclient"
-                }
-            ],
-            "restart_policy": "always"
         },
         {
             "type": 1,
