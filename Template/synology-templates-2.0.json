@@ -181,7 +181,7 @@
             "note": "Check Navidrome site for latest env variable options",
             "labels": [
                 {
-                    "name": "user", "${PUID}:${PGID}"
+                    "name": "user", "value": "${PUID}:${PGID}"
                 }
             ],
             "ports": [
