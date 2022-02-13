@@ -51,7 +51,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/Flame.png",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/flame.png",
             "image": "pawelmalak/flame:latest",
             "name": "flame",
             "ports": [
@@ -82,7 +82,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://getgrav.org/user/pages/media/grav-symbol.svg",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/grav.png",
             "image": "linuxserver/grav:latest",
             "name": "",
             "note": "Volume directory must be changed to separate name for each site.",
@@ -126,7 +126,7 @@
                 "Tools"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/guacamole.png",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/guacamole.png",
             "image": "oznu/guacamole:latest",
             "name": "guacamole",
             "note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
@@ -150,7 +150,7 @@
                 "Tools"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/proxy_mgr.png",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/nginxproxymanager.png",
             "image": "gh0stofcerberos/nginx-proxy-manager:latest",
             "name": "nginx-proxy-manager",
             "ports": [
@@ -175,30 +175,31 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://github.com/navidrome/navidrome/blob/master/resources/logo-192x192.png?raw=true",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/navidrome.png",
             "image": "deluan/navidrome:latest",
             "name": "navidrome",
             "note": "Check Navidrome site for latest env variable options",
+            "user": "${PUID}:${PGID}"
             "ports": [
                 "4533:4533/tcp"
             ],
             "env": [
                 {
                     "default": "1000",
-                    "label": "UID",
-                    "name": "UID",
+                    "label": "PUID",
+                    "name": "PUID",
                     "description": "Docker host user ID. Obtain using 'id username'."
                 },
                 {
                     "default": "1000",
-                    "label": "GID",
-                    "name": "GID",
+                    "label": "PGID",
+                    "name": "PGID",
                     "description": "Docker host user group ID. Obtain using 'id username'."
                 },
                 {
                     "default": "1h",
-                    "label": "Scan Interval",
-                    "name": "ND_SCANINTERVAL",
+                    "label": "Scan Schedule",
+                    "name": "ND_SCANSCHEDULE",
                     "description": "How frequently to scan for changes in your music library. Set it to 0 to disable scans."
                 },
                 {
@@ -220,6 +221,24 @@
                     "description": "Base URL (only the path part) to configure Navidrome behind a proxy (ex: /music)."
                 },
                 {
+                    "default": "Dark",
+                    "label": "Default Theme",
+                    "name": "ND_DEFAULTTHEME", 	
+                    "description": "Sets the default theme used by the UI when logging in from a new browser. This value must match one of the options in the UI."
+                },
+                {
+                    "default": "Remote-User",
+                    "label": "ReverseProxyUserHeader",
+                    "name": "ND_REVERSEPROXYUSERHEADER",
+                    "description": "HTTP header containing user name from authenticated proxy."
+                },
+                {
+                    "default": "",
+                    "label": "ReverseProxyWhitelist",
+                    "name": "ND_REVERSEPROXYWHITELIST",
+                    "description": "Comma separated list of IP CIDRs which are allowed to use reverse proxy authentication, empty means “deny all”."
+                },
+                {
                     "default": "false",
                     "label": "Transcoding Config",
                     "name": "ND_ENABLETRANSCODINGCONFIG",
@@ -233,7 +252,8 @@
                 },
                 {
                     "bind": "/volume1/docker/navidrome/music",
-                    "container": "/music"
+                    "container": "/music",
+                    "readonly": true
                 }
             ],
             "restart_policy": "unless-stopped"
