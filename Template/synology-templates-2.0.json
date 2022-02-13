@@ -253,7 +253,7 @@
                 {
                     "bind": "/volume1/docker/navidrome/music",
                     "container": "/music",
-                    "readonly": true
+                    "readonly": "true"
                 }
             ],
             "restart_policy": "unless-stopped"
