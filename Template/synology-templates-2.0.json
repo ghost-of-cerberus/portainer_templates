@@ -56,7 +56,7 @@
                     "container": "/workspace"
                 }
             ],
-            "restart_policy": "unless-stopped",
+            "restart_policy": "unless-stopped"
         },
         {
             "type": 1,
