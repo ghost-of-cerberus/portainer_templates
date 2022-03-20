@@ -67,7 +67,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png"
+            "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png",
             "image": "gh0stofcerberos/ddclient:latest",
             "name": "ddclient",
             "env": [
