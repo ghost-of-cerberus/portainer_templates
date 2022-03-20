@@ -67,7 +67,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://www.labsrc.com/wp-content/uploads/2019/10/ddclient-logo-trans.png",
+            "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png"
             "image": "gh0stofcerberos/ddclient:latest",
             "name": "ddclient",
             "env": [
@@ -109,7 +109,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/flame.png",
-            "image": "pawelmalak/flame:latest",
+            "image": "ghcr.io/darveau/flame:latest",
             "name": "flame",
             "ports": [
                 "5005:5005/tcp"
