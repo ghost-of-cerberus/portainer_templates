@@ -109,7 +109,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/flame.png",
-            "image": "ghcr.io/darveau/flame:latest",
+            "image": "ghcr.io/fdarveau/flame:latest",
             "name": "flame",
             "ports": [
                 "5005:5005/tcp"
