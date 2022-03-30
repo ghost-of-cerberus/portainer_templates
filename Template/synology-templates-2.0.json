@@ -176,6 +176,29 @@
         },
         {
             "type": 1,
+            "title": "GoAccess - Nginx Proxy Manager",
+            "description": "(Alpine) GoAccess portal for Nginx Proxy Manager. Reads Nginx Proxy Manager logs and presents data in modules for simplified monitoring.",
+            "categories": [
+                "Proxy",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/goaccess-logo.png",
+            "image": "xavierh/goaccess-for-nginxproxymanager:latest",
+            "name": "nginx-goaccess",
+            "ports": [
+                "7880:7880/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/nginx-proxy-manager/log",
+                    "container": "/opt/log"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Guacamole",
             "description": "A clientless remote desktop gateway.",
             "categories": [
