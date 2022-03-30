@@ -132,6 +132,55 @@
         },
         {
             "type": 1,
+            "title": "GoAccess - Nginx Proxy Manager",
+            "description": "(Alpine) GoAccess portal for Nginx Proxy Manager. Reads Nginx Proxy Manager logs and presents data in modules for simplified monitoring.",
+            "categories": [
+                "Proxy",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/goaccess-logo.png",
+            "image": "xavierh/goaccess-for-nginxproxymanager:latest",
+            "name": "nginx-goaccess",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "TZ",
+                    "name": "Time Zone",
+                    "description": "Set the time for the location of the container."
+                },
+                {
+                    "default": "false",
+                    "label": "SKIP_ARCHIVED_LOGS",
+                    "name": "Skip Archived Logs",
+                    "description": "Enable or disable parsing of archived logs (i.e.-*.gz files)."
+                }
+            ],
+            "ports": [
+                "7880:7880/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/nginx-proxy-manager/log",
+                    "container": "/opt/log"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Grav",
             "description": "Grav is not your average CMS. It's an open source, flat-file NoDB CMS written for PHP 7.1.3+ that is focused on being crazy fast, easy to learn and use, with powerful features to enable it be easily extended.",
             "categories": [
@@ -170,29 +219,6 @@
                 {
                     "bind": "/volume1/docker/grav/changeme",
                     "container": "/config"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "GoAccess - Nginx Proxy Manager",
-            "description": "(Alpine) GoAccess portal for Nginx Proxy Manager. Reads Nginx Proxy Manager logs and presents data in modules for simplified monitoring.",
-            "categories": [
-                "Proxy",
-                "Tools"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/goaccess-logo.png",
-            "image": "xavierh/goaccess-for-nginxproxymanager:latest",
-            "name": "nginx-goaccess",
-            "ports": [
-                "7880:7880/tcp"
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume1/docker/nginx-proxy-manager/log",
-                    "container": "/opt/log"
                 }
             ],
             "restart_policy": "unless-stopped"
