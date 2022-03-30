@@ -24,8 +24,8 @@
                 },
                 {
                     "default": "1000",
-                    "label": "PUID",
-                    "name": "GUID"
+                    "label": "PGID",
+                    "name": "PGID"
                 },
                 {
                     "default": "Europe/London",
@@ -158,13 +158,13 @@
                 {
                     "default": "Europe/London",
                     "label": "TZ",
-                    "name": "Time Zone",
+                    "name": "TZ",
                     "description": "Set the time for the location of the container."
                 },
                 {
                     "default": "false",
                     "label": "SKIP_ARCHIVED_LOGS",
-                    "name": "Skip Archived Logs",
+                    "name": "SKIP_ARCHIVED_LOGS",
                     "description": "Enable or disable parsing of archived logs (i.e.-*.gz files)."
                 }
             ],
