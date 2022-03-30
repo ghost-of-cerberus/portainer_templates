@@ -100,8 +100,40 @@
         },
         {
             "type": 1,
-            "title": "Flame",
+            "title": "Flame (pawelmalak)",
             "description": "Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
+            "categories": [
+                "Tools",
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/flame.png",
+            "image": "pawelmalak/flame:latest",
+            "name": "flame",
+            "ports": [
+                "5005:5005/tcp"
+            ],
+            "env": [
+                {
+                    "default": "P@ssw0rd",
+                    "label": "Password",
+                    "name": "PASSWORD",
+                    "description": "Enter Flame Login Password"
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/flame",
+                    "container": "/app/data"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Flame (fdarveau)",
+            "description": "[Fork of Flame with App Categories] Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
             "categories": [
                 "Tools",
                 "Web",
