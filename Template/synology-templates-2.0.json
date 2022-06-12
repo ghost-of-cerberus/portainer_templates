@@ -86,7 +86,7 @@
                     "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
                     "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
                     "description": "(optional) Set this to allow Google OAUTH to work."
-                },
+                }
             ],
             "ports": [
                 "8083:8083/tcp"
