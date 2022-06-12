@@ -3,6 +3,108 @@
     "templates": [
         {
             "type": 1,
+            "title": "Argus",
+            "description": "Argus provides a way for you to monitor the versions of software and trigger alerts when a new release is been found.",
+            "categories": [
+                "Other",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://github.com/release-argus/Argus/raw/master/web/ui/static/favicon.svg",
+            "image": "releaseargus/argus:latest",
+            "name": "argus",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "TZ",
+                    "name": "TZ",
+                    "description": "Set the time for the location of the container."
+                }
+            ],
+            "ports": [
+                "8080:8080/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/argus/config.yml",
+                    "container": "/etc/argus/config.yml"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Calibre-Web",
+            "description": "Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using a valid Calibre database.",
+            "categories": [
+                "Other",
+                "eBooks"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/calibreweb.png",
+            "image": "linuxserver/calibre-web:latest",
+            "name": "calibre-web",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "TZ",
+                    "name": "TZ",
+                    "description": "Set the time for the location of the container."
+                },
+                {
+                    "default": "linuxserver/calibre-web:calibre",
+                    "label": "DOCKER_MODS",
+                    "name": "DOCKER_MODS",
+                    "description": "(optional) x86-64 only. Adds the ability to perform ebook conversion."
+                },
+                {
+                    "default": "1",
+                    "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+                    "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+                    "description": "(optional) Set this to allow Google OAUTH to work."
+                },
+            ],
+            "ports": [
+                "8083:8083/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1/docker/calibre-web",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume1/Media",
+                    "container": "/books"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Code Server",
             "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
             "categories": [
@@ -158,97 +260,6 @@
                 {
                     "bind": "/volume1/docker/flame",
                     "container": "/app/data"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "FreshRSS",
-            "description": "A free, self-hostable rss aggregator…",
-            "categories": [
-                "Other"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/freshrss.png",
-            "image": "linuxserver/freshrss:latest",
-            "name": "freshrss",
-            "env": [
-                {
-                    "default": "1000",
-                    "label": "PUID",
-                    "name": "PUID",
-                    "description": "Docker host user ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "1000",
-                    "label": "PGID",
-                    "name": "PGID",
-                    "description": "Docker host user group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "Europe/London",
-                    "label": "TZ",
-                    "name": "TZ",
-                    "description": "Set the time for the location of the container."
-                }
-            ],
-            "ports": [
-                "80:80/tcp"
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume1/docker/freshrss",
-                    "container": "/config"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "GoAccess - Nginx Proxy Manager",
-            "description": "(Alpine) GoAccess portal for Nginx Proxy Manager. Reads Nginx Proxy Manager logs and presents data in modules for simplified monitoring.",
-            "categories": [
-                "Proxy",
-                "Tools"
-            ],
-            "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/goaccess-logo.png",
-            "image": "xavierh/goaccess-for-nginxproxymanager:latest",
-            "name": "nginx-goaccess",
-            "env": [
-                {
-                    "default": "1000",
-                    "label": "PUID",
-                    "name": "PUID",
-                    "description": "Docker host user ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "1000",
-                    "label": "PGID",
-                    "name": "PGID",
-                    "description": "Docker host user group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "Europe/London",
-                    "label": "TZ",
-                    "name": "TZ",
-                    "description": "Set the time for the location of the container."
-                },
-                {
-                    "default": "false",
-                    "label": "SKIP_ARCHIVED_LOGS",
-                    "name": "SKIP_ARCHIVED_LOGS",
-                    "description": "Enable or disable parsing of archived logs (i.e.-*.gz files)."
-                }
-            ],
-            "ports": [
-                "7880:7880/tcp"
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume1/docker/nginx-proxy-manager/log",
-                    "container": "/opt/log"
                 }
             ],
             "restart_policy": "unless-stopped"
