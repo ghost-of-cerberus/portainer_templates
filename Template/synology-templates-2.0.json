@@ -127,7 +127,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/ddclient-logo-trans.png",
-            "image": "gh0stofcerberos/ddclient:latest",
+            "image": "linuxserver/ddclient:latest",
             "name": "ddclient",
             "env": [
                 {
@@ -152,7 +152,7 @@
             "volumes": [
                 {
                     "bind": "/volume1/docker/ddclient",
-                    "container": "/etc/ddclient"
+                    "container": "/config"
                 }
             ],
             "restart_policy": "always"
