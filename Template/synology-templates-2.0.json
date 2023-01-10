@@ -10,7 +10,7 @@
                 "eBooks"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/calibreweb.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/calibreweb.png",
             "image": "linuxserver/calibre-web:latest",
             "name": "calibre-web",
             "env": [
@@ -167,7 +167,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/flame.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/flame.png",
             "image": "ghcr.io/fdarveau/flame:latest",
             "name": "flame",
             "ports": [
@@ -198,7 +198,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/grav.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grav.png",
             "image": "linuxserver/grav:latest",
             "name": "",
             "note": "Volume directory must be changed to separate name for each site.",
@@ -242,7 +242,7 @@
                 "Tools"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/nginxproxymanager.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginxproxymanager.png",
             "image": "gh0stofcerberos/nginx-proxy-manager:latest",
             "name": "nginx-proxy-manager",
             "ports": [
@@ -267,7 +267,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://raw.githubusercontent.com/walkxhub/dashboard-icons/master/png/navidrome.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/navidrome.png",
             "image": "deluan/navidrome:latest",
             "name": "navidrome",
             "note": "Check Navidrome site for latest env variable options",
