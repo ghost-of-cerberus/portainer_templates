@@ -33,7 +33,7 @@
                     "description": "Set the time for the location of the container."
                 },
                 {
-                    "default": "linuxserver/calibre-web:calibre",
+                    "default": "linuxserver/mods:universal-calibre",
                     "label": "DOCKER_MODS",
                     "name": "DOCKER_MODS",
                     "description": "(optional) x86-64 only. Adds the ability to perform ebook conversion."
