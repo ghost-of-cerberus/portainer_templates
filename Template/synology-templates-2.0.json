@@ -50,7 +50,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/calibre-web",
+                    "bind": "/volume2/docker/calibre-web",
                     "container": "/config"
                 },
                 {
@@ -107,11 +107,11 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/code-server",
+                    "bind": "/volume2/docker/code-server",
                     "container": "/config"
                 },
                 {
-                    "bind": "/volume1/docker",
+                    "bind": "/volume2/docker",
                     "container": "/workspace"
                 }
             ],
@@ -151,7 +151,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/ddclient",
+                    "bind": "/volume2/docker/ddclient",
                     "container": "/config"
                 }
             ],
@@ -183,7 +183,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/flame",
+                    "bind": "/volume2/docker/flame",
                     "container": "/app/data"
                 }
             ],
@@ -227,7 +227,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/grav/changeme",
+                    "bind": "/volume2/docker/grav/changeme",
                     "container": "/config"
                 }
             ],
@@ -252,8 +252,16 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/nginx-proxy-manager",
+                    "bind": "/volume2/docker/nginx-proxy-manager/config",
                     "container": "/config"
+                },
+                {
+                    "bind": "/volume2/docker/nginx-proxy-manager",
+                    "container": "/config/nginx/custom"
+                },
+                {
+                    "bind": "/volume2/docker/nginx-proxy-manager",
+                    "container": "/config/nginx/snippets"
                 }
             ],
             "restart_policy": "unless-stopped"
@@ -331,11 +339,11 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1/docker/navidrome/data",
+                    "bind": "/volume2/docker/navidrome/data",
                     "container": "/data"
                 },
                 {
-                    "bind": "/volume1/docker/navidrome/music",
+                    "bind": "/volume2/docker/navidrome/music",
                     "container": "/music",
                     "readonly": true
                 }
