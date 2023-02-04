@@ -257,11 +257,11 @@
                 },
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/custom",
-                    "container": "/config/nginx/custom",
+                    "container": "/config/nginx/custom"
                 },
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/snippets",
-                    "container": "/config/nginx/snippets",
+                    "container": "/config/nginx/snippets"
                 }
             ],
             "restart_policy": "unless-stopped"
