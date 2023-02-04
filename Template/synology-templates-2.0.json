@@ -257,12 +257,12 @@
                 },
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager",
-                    "container": "/config/nginx/custom"
+                    "container": "/config/nginx/custom",
                     "readonly": true
                 },
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager",
-                    "container": "/config/nginx/snippets"
+                    "container": "/config/nginx/snippets",
                     "readonly": true
                 }
             ],
