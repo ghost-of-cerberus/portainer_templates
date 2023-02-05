@@ -267,6 +267,10 @@
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/snippets",
                     "container": "/config/nginx/snippets"
+                },
+                {
+                    "bind": "/volume2/docker/nginx-proxy-manager/GeoLite2-Country.mmdb",
+                    "container": "/config/nginx/geoip/GeoLite2-Country.mmdb"
                 }
             ],
             "restart_policy": "unless-stopped"
