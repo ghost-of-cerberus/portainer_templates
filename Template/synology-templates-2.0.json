@@ -103,6 +103,11 @@
                     "default": "example.my.domain",
                     "label": "PROXY_DOMAIN",
                     "name": "PROXY_DOMAIN"
+                },
+                {
+                    "default": "/workspace",
+                    "label": "DEFAULT_WORKSPACE",
+                    "name": "DEFAULT_WORKSPACE"
                 }
             ],
             "volumes": [
