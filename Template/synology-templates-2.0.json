@@ -124,6 +124,47 @@
         },
         {
             "type": 1,
+            "title": "Dashy",
+            "description": "Dashy is an open source, highly customizable, easy to use, privacy-respecting dashboard app.",
+            "categories": [
+                "Tools",
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dashy.png",
+            "image": "lissy93/dashy:latest",
+            "name": "dashy",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "UID",
+                    "name": "UID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "GID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "production",
+                    "label": "Node Environment",
+                    "name": "NODE_ENV",
+                    "description": "Indicate whether Node should run in 'production' or 'development' environment."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/dashy/conf.yml",
+                    "container": "/app/public/conf.yml"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "ddclient",
             "description": "DDClient is a Perl based IP update client for *nix based systems including Linux, FreeBSD and Mac OS X. It supports operating as a daemon as well as optimizes updates for multiple hostnames and aliases. https://ddclient.net",
             "categories": [
