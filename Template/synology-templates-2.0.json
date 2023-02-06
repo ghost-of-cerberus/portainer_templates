@@ -135,6 +135,9 @@
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dashy.png",
             "image": "lissy93/dashy:latest",
             "name": "dashy",
+            "ports": [
+                "4000:80/tcp"
+            ],
             "env": [
                 {
                     "default": "1000",
