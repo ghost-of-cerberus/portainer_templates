@@ -262,15 +262,15 @@
                 },
                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/nginx/custom",
-                    "container": "/config/nginx/custom",
+                    "container": "/config/nginx/custom"
                 },
                                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/nginx/snippets",
-                    "container": "/config/nginx/snippets",
+                    "container": "/config/nginx/snippets"
                 },
                                 {
                     "bind": "/volume2/docker/nginx-proxy-manager/nginx/geoip",
-                    "container": "/config/nginx/geoip",
+                    "container": "/config/nginx/geoip"
                 }
             ],
             "restart_policy": "unless-stopped"
