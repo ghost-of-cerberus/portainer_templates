@@ -50,7 +50,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume2/docker/calibre-web",
+                    "bind": "/volume2/docker/calibre-web/config",
                     "container": "/config"
                 },
                 {
@@ -112,7 +112,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume2/docker/code-server",
+                    "bind": "/volume2/docker/code-server/config",
                     "container": "/config"
                 },
                 {
@@ -293,7 +293,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume2/docker/navidrome",
+                    "bind": "/volume2/docker/navidrome/data",
                     "container": "/data"
                 },
                 {
