@@ -28,7 +28,7 @@
                 },
                 {
                     "default": "Europe/London",
-                    "label": "TZ",
+                    "label": "Time Zone",
                     "name": "TZ",
                     "description": "Set the time for the location of the container."
                 },
@@ -88,7 +88,7 @@
                 },
                 {
                     "default": "Europe/London",
-                    "label": "TZ",
+                    "label": "Time Zone",
                     "name": "TZ"
                 },
                 {
@@ -101,7 +101,7 @@
                 },
                 {
                     "default": "example.my.domain",
-                    "label": "PROXY_DOMAIN",
+                    "label": "Proxied External URL",
                     "name": "PROXY_DOMAIN"
                 },
                 {
@@ -149,8 +149,8 @@
                 },
                 {
                     "default": "Europe/London",
-                    "label": "TZ",
-                    "name": "Time Zone",
+                    "label": "Time Zone",
+                    "name": "TZ",
                     "description": "Set the time for the location of the container."
                 }
             ],
@@ -225,8 +225,8 @@
                 },
                 {
                     "default": "Europe/London",
-                    "label": "TZ",
-                    "name": "Time Zone",
+                    "label": "Time Zone",
+                    "name": "TZ",
                     "description": "Set the time for the location of the container."
                 }
             ],
@@ -261,16 +261,8 @@
                     "container": "/config"
                 },
                 {
-                    "bind": "/volume2/docker/nginx-proxy-manager/custom",
-                    "container": "/config/nginx/custom"
-                },
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/snippets",
-                    "container": "/config/nginx/snippets"
-                },
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/GeoLite2-Country.mmdb",
-                    "container": "/config/nginx/geoip/GeoLite2-Country.mmdb"
+                    "bind": "/volume2/docker/nginx-proxy-manager/nginx",
+                    "container": "/config/nginx"
                 }
             ],
             "restart_policy": "unless-stopped"
@@ -288,71 +280,24 @@
             "image": "deluan/navidrome:latest",
             "name": "navidrome",
             "note": "Check Navidrome site for latest env variable options",
-            "labels": [
-                {
-                    "name": "user", "value": "1027:100"
-                }
-            ],
             "ports": [
                 "4533:4533/tcp"
             ],
             "env": [
                 {
-                    "default": "1h",
-                    "label": "Scan Schedule",
-                    "name": "ND_SCANSCHEDULE",
-                    "description": "How frequently to scan for changes in your music library. Set it to 0 to disable scans."
-                },
-                {
-                    "default": "info",
-                    "label": "Log Level",
-                    "name": "ND_LOGLEVEL",
-                    "description": "Log level. Useful for troubleshooting. Possible values: error, info, debug, trace."
-                },
-                {
-                    "default": "24h",
-                    "label": "Session Timeout",
-                    "name": "ND_SESSIONTIMEOUT",
-                    "description": "How long Navidrome will wait before closing web ui idle sessions."
-                },
-                {
-                    "default": "",
-                    "label": "Base URL",
-                    "name": "ND_BASEURL",
-                    "description": "Base URL (only the path part) to configure Navidrome behind a proxy (ex: /music)."
-                },
-                {
-                    "default": "Dark",
-                    "label": "Default Theme",
-                    "name": "ND_DEFAULTTHEME", 	
-                    "description": "Sets the default theme used by the UI when logging in from a new browser. This value must match one of the options in the UI."
-                },
-                {
-                    "default": "Remote-User",
-                    "label": "ReverseProxyUserHeader",
-                    "name": "ND_REVERSEPROXYUSERHEADER",
-                    "description": "HTTP header containing user name from authenticated proxy."
-                },
-                {
-                    "default": "",
-                    "label": "ReverseProxyWhitelist",
-                    "name": "ND_REVERSEPROXYWHITELIST",
-                    "description": "Comma separated list of IP CIDRs which are allowed to use reverse proxy authentication, empty means “deny all”."
-                },
-                {
-                    "default": "false",
-                    "label": "Transcoding Config",
-                    "name": "ND_ENABLETRANSCODINGCONFIG",
-                    "description": "Enables transcoding configuration in the UI. Should be disabled after configuration. Check Navidrome security recommendations."
+                    "default": "/data/navidrome.toml",
+                    "label": "Config File Path",
+                    "name": "ND_CONFIGFILE",
+                    "description": "Load configurations from an external config file."
                 }
             ],
             "volumes": [
                 {
-                    "bind": "/volume2/docker/navidrome/data",
+                    "bind": "/volume2/docker/navidrome",
                     "container": "/data"
                 },
                 {
-                    "bind": "/volume2/docker/navidrome/music",
+                    "bind": "/volume1/Audio",
                     "container": "/music",
                     "readonly": true
                 }
