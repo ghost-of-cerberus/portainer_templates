@@ -208,6 +208,54 @@
         },
         {
             "type": 1,
+            "title": "Emby",
+            "description": "Emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices.",
+            "categories": [
+                "Video",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/emby.png",
+            "image": "lscr.io/linuxserver/emby:latest",
+            "name": "emby",
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "Time Zone",
+                    "name": "TZ",
+                    "description": "Set the time for the location of the container."
+                }
+            ],
+            "ports": [
+                "8096:8096/tcp"
+                "8920:8920/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/emby/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume1/Video",
+                    "container": "/data/video"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Flame (fdarveau)",
             "description": "[Fork of Flame with App Categories] Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
             "categories": [
