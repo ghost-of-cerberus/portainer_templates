@@ -11,7 +11,7 @@
             ],
             "platform": "linux",
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/calibreweb.png",
-            "image": "linuxserver/calibre-web:latest",
+            "image": "lscr.io/linuxserver/calibre-web:latest",
             "name": "calibre-web",
             "env": [
                 {
@@ -70,7 +70,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/code-server.png",
-            "image": "linuxserver/code-server:latest",
+            "image": "lscr.io/linuxserver/code-server:latest",
             "name": "code-server",
             "ports": [
                 "8443:8443/tcp"
@@ -176,7 +176,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/ghost-of-cerberus/portainer_templates/main/Template/Images/ddclient-logo-trans.png",
-            "image": "linuxserver/ddclient:latest",
+            "image": "lscr.io/linuxserver/ddclient:latest",
             "name": "ddclient",
             "env": [
                 {
@@ -296,7 +296,7 @@
             ],
             "platform": "linux",
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grav.png",
-            "image": "linuxserver/grav:latest",
+            "image": "lscr.io/linuxserver/grav:latest",
             "name": "",
             "note": "Volume directory must be changed to separate name for each site.",
             "ports": [
