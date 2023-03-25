@@ -133,7 +133,7 @@
             ],
             "platform": "linux",
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dashy.png",
-            "image": "lissy93/dashy:latest",
+            "image": "ghcr.io/lissy93/dashy:latest",
             "name": "dashy",
             "ports": [
                 "4000:80/tcp"
@@ -162,6 +162,18 @@
                 {
                     "bind": "/volume2/docker/dashy/conf.yml",
                     "container": "/app/public/conf.yml"
+                },
+                {
+                    "bind": "/volume2/docker/dashy/user-defined-themes.scss",
+                    "container": "/app/src/styles/user-defined-themes.scss"
+                },
+                {
+                    "bind": "/volume2/docker/dashy/fonts",
+                    "container": "/app/public/fonts"
+                },
+                {
+                    "bind": "/volume2/docker/dashy/item-icons",
+                    "container": "/app/public/item-icons"
                 }
             ],
             "restart_policy": "unless-stopped"
