@@ -132,7 +132,7 @@
             ],
             "platform": "linux",
             "logo": "https://raw.githubusercontent.com/qarmin/czkawka/018d5bebb0b297ba35529b03b8e2e68eb0a9b474/snap/gui/czkawka.png",
-            "image": "jlesage/docker-czkawka:latest",
+            "image": "jlesage/czkawka:latest",
             "name": "czkawka",
             "ports": [
                 "5800:5800/tcp"
