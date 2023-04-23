@@ -124,6 +124,65 @@
         },
         {
             "type": 1,
+            "title": "Czkawka",
+            "description": "Czkawka (tch•kav•ka (IPA: [ˈʧ̑kafka]), \"hiccup\" in Polish) is a simple, fast and free app to remove unnecessary files from your computer.",
+            "categories": [
+                "Tools",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://raw.githubusercontent.com/qarmin/czkawka/018d5bebb0b297ba35529b03b8e2e68eb0a9b474/snap/gui/czkawka.png",
+            "image": "docker.io/jlesage/docker-czkawka:latest",
+            "name": "czkawka",
+            "ports": [
+                "5800:5800/tcp"
+            ],
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "User ID",
+                    "name": "USER_ID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "Group ID",
+                    "name": "GROUP_ID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "en_GB.UTF-8",
+                    "label": "Language",
+                    "name": "LANG",
+                    "description": "Set the locale, which defines the application's language, if supported. Format of the locale is language[_territory][.codeset], where language is an ISO 639 language code, territory is an ISO 3166 country code and codeset is a character set, like UTF-8. For example, Australian English using the UTF-8 encoding is en_AU.UTF-8."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "Time Zone",
+                    "name": "TZ",
+                    "description": "TimeZone used by the container. Timezone can also be set by mapping /etc/localtime between the host and the container."
+                },
+                {
+                    "default": "1",
+                    "label": "Dark Theme",
+                    "name": "DARK_MODE",
+                    "description": "When set to 1, dark mode is enabled for the application."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/czkawka/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume1/<directory_to_scan>",
+                    "container": "/storage"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Dashy",
             "description": "Dashy is an open source, highly customizable, easy to use, privacy-respecting dashboard app.",
             "categories": [
