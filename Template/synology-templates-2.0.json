@@ -498,6 +498,51 @@
                 }
             ],
             "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Unmanic",
+            "description": "Unmanic is a simple tool for optimising your file library. You can use it to convert your files into a single, uniform format, manage file movements based on timestamps, or execute custom commands against a file based on its file size.",
+            "categories": [
+                "Tools",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/unmanic.png",
+            "image": "josh5/unmanic:latest",
+            "name": "unmanic",
+            "ports": [
+                "8888:8888/tcp"
+            ],
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "User ID",
+                    "name": "PUID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "Group ID",
+                    "name": "PGID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/unmanic/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume2/docker/unmanic/cache",
+                    "container": "/tmp/unmanic"
+                },
+                {
+                    "bind": "/volume1/<library>",
+                    "container": "/library"
+                }
+            ],
+            "restart_policy": "unless-stopped"
         }
     ]
 }
