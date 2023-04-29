@@ -10,7 +10,7 @@
                 "eBooks"
             ],
             "platform": "linux",
-            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/calibreweb.png",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/calibre-web.png",
             "image": "lscr.io/linuxserver/calibre-web:latest",
             "name": "calibre-web",
             "env": [
@@ -427,43 +427,6 @@
         },
         {
             "type": 1,
-            "title": "Nginx Proxy Manager",
-            "description": "(Alpine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-            "categories": [
-                "Proxy",
-                "Tools"
-            ],
-            "platform": "linux",
-            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginxproxymanager.png",
-            "image": "gh0stofcerberos/nginx-proxy-manager:latest",
-            "name": "nginx-proxy-manager",
-            "ports": [
-                "80:80/tcp",
-                "8181:8181/tcp",
-                "443:443/tcp"
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/config",
-                    "container": "/config"
-                },
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/custom",
-                    "container": "/config/nginx/custom"
-                },
-                                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/snippets",
-                    "container": "/config/nginx/snippets"
-                },
-                                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/geoip",
-                    "container": "/config/nginx/geoip"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
             "title": "Navidrome",
             "description": "Software that allows you to listen to your own digital music in the same way you would with services like Spotify, Apple Music and others.",
             "categories": [
@@ -495,6 +458,43 @@
                     "bind": "/volume1/Audio",
                     "container": "/music",
                     "readonly": true
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Nginx Proxy Manager",
+            "description": "(Alpine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+            "categories": [
+                "Proxy",
+                "Tools"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx-proxy-manager.png",
+            "image": "gh0stofcerberos/nginx-proxy-manager:latest",
+            "name": "nginx-proxy-manager",
+            "ports": [
+                "80:80/tcp",
+                "8181:8181/tcp",
+                "443:443/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/nginx-proxy-manager/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/custom",
+                    "container": "/config/nginx/custom"
+                },
+                                {
+                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/snippets",
+                    "container": "/config/nginx/snippets"
+                },
+                                {
+                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/geoip",
+                    "container": "/config/nginx/geoip"
                 }
             ],
             "restart_policy": "unless-stopped"
