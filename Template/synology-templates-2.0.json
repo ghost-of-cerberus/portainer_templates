@@ -3,6 +3,46 @@
     "templates": [
         {
             "type": 1,
+            "title": "AdGuard Home",
+            "description": "Privacy protection center for you and your devices. Free and open source, powerful network-wide ads & trackers blocking DNS server.",
+            "categories": [
+                "Tools",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/adguard-home.png",
+            "image": "adguard/adguardhome:latest",
+            "name": "adguard",
+            "ports": [
+                "53:53/tcp",
+                "53:53/udp",
+                "67:67/udp",
+                "68:68/udp",
+                "80:80/tcp",
+                "443:443/tcp",
+                "443:443/udp",
+                "3000:3000/tcp",
+                "853:853/tcp",
+                "784:784/udp",
+                "853:853/udp",
+                "8853:8853/udp",
+                "5443:5443/tcp",
+                "5443:5443/udp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/adguard/config",
+                    "container": "/opt/adguardhome/conf"
+                },
+                {
+                    "bind": "/volume2/docker/adguard/data",
+                    "container": "/opt/adguardhome/work"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Calibre-Web",
             "description": "Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using a valid Calibre database.",
             "categories": [
