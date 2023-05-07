@@ -514,10 +514,43 @@
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx-proxy-manager.png",
             "image": "gh0stofcerberos/nginx-proxy-manager:latest",
             "name": "nginx-proxy-manager",
+            "note": "### To use privileged ports 'USER_ID' and 'GROUP_ID' values must be set to '0' (root)",
             "ports": [
                 "80:80/tcp",
                 "8181:8181/tcp",
                 "443:443/tcp"
+            ],
+            "env": [
+                {
+                    "default": "1000",
+                    "label": "User ID",
+                    "name": "USER_ID",
+                    "description": "Docker host user ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "1000",
+                    "label": "Group ID",
+                    "name": "GROUP_ID",
+                    "description": "Docker host user group ID. Obtain using 'id username'."
+                },
+                {
+                    "default": "Europe/London",
+                    "label": "Time Zone",
+                    "name": "TZ",
+                    "description": "Set the time for the location of the container."
+                },
+                {
+                    "default": "0022",
+                    "label": "Set UMASK",
+                    "name": "UMASK",
+                    "description": "Mask that controls how file permissions are set for newly created files. The value of the mask is in octal notation. By default, the default umask value is '0022', meaning that newly created files are readable by everyone, but only writable by the owner. See the online umask calculator at http://wintelguy.com/umask-calc.pl."
+                },
+                {
+                    "default": "0",
+                    "label": "Disble IPv6 support",
+                    "name": "DISABLE_IPV6",
+                    "description": "When set to '1', IPv6 support is disabled. This is needed when IPv6 is not enabled/supported on the host."
+                }
             ],
             "volumes": [
                 {
