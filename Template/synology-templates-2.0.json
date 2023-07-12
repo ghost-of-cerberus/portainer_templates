@@ -39,7 +39,7 @@
                     "container": "/opt/adguardhome/work"
                 }
             ],
-            "restart_policy": "unless-stopped"
+            "restart_policy": "always"
         },
         {
             "type": 1,
