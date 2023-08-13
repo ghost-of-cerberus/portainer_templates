@@ -43,6 +43,45 @@
         },
         {
             "type": 1,
+            "title": "Caddy",
+            "description": "Caddy 2 is a powerful, enterprise-ready, open source web server with automatic HTTPS written in Go.",
+            "categories": [
+                "Proxy",
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/caddy.png",
+            "image": "qvcr.uk/qorvium/caddy:latest",
+            "name": "caddy",
+            "note": "Bind mount for '/srv' is only required if caddy will be serving static content directly.",
+            "ports": [
+                "80:80/tcp",
+                "443:443/tcp",
+                "443:443/udp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/caddy/caddyfile",
+                    "container": "/etc/caddy/Caddyfile"
+                },
+                {
+                    "bind": "/volume2/docker/caddy/config",
+                    "container": "/config"
+                },
+                {
+                    "bind": "/volume2/docker/caddy/data",
+                    "container": "/data"
+                },
+                {
+                    "bind": "/volume2/docker/caddy/sites",
+                    "container": "/srv"
+                }
+            ],
+            "restart_policy": "always"
+        },
+        {
+            "type": 1,
             "title": "Calibre-Web",
             "description": "Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using a valid Calibre database.",
             "categories": [
@@ -220,63 +259,7 @@
                 }
             ],
             "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "Dashy",
-            "description": "Dashy is an open source, highly customizable, easy to use, privacy-respecting dashboard app.",
-            "categories": [
-                "Tools",
-                "Web",
-                "Other"
-            ],
-            "platform": "linux",
-            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dashy.png",
-            "image": "ghcr.io/lissy93/dashy:latest",
-            "name": "dashy",
-            "ports": [
-                "4000:80/tcp"
-            ],
-            "env": [
-                {
-                    "default": "1000",
-                    "label": "UID",
-                    "name": "UID",
-                    "description": "Docker host user ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "1000",
-                    "label": "PGID",
-                    "name": "GID",
-                    "description": "Docker host user group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "production",
-                    "label": "Node Environment",
-                    "name": "NODE_ENV",
-                    "description": "Indicate whether Node should run in 'production' or 'development' environment."
-                }
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume2/docker/dashy/conf.yml",
-                    "container": "/app/public/conf.yml"
-                },
-                {
-                    "bind": "/volume2/docker/dashy/user-defined-themes.scss",
-                    "container": "/app/src/styles/user-defined-themes.scss"
-                },
-                {
-                    "bind": "/volume2/docker/dashy/fonts",
-                    "container": "/app/public/fonts"
-                },
-                {
-                    "bind": "/volume2/docker/dashy/item-icons",
-                    "container": "/app/public/item-icons"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
+        },        
         {
             "type": 1,
             "title": "ddclient",
@@ -367,38 +350,6 @@
         },
         {
             "type": 1,
-            "title": "Flame (fdarveau)",
-            "description": "[Fork of Flame with App Categories] Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
-            "categories": [
-                "Tools",
-                "Web",
-                "Other"
-            ],
-            "platform": "linux",
-            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/flame.png",
-            "image": "ghcr.io/fdarveau/flame:latest",
-            "name": "flame",
-            "ports": [
-                "5005:5005/tcp"
-            ],
-            "env": [
-                {
-                    "default": "P@ssw0rd",
-                    "label": "Password",
-                    "name": "PASSWORD",
-                    "description": "Enter Flame Login Password"
-                }
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume2/docker/flame",
-                    "container": "/app/data"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
             "title": "Grav",
             "description": "Grav is not your average CMS. It's an open source, flat-file NoDB CMS written for PHP 7.1.3+ that is focused on being crazy fast, easy to learn and use, with powerful features to enable it be easily extended.",
             "categories": [
@@ -443,30 +394,6 @@
         },
         {
             "type": 1,
-            "title": "Magma",
-            "description": "Personal dashboard that is highly customizable, lightweight and responsive.",
-            "categories": [
-                "Tools",
-                "Web",
-                "Other"
-            ],
-            "platform": "linux",
-            "logo": "https://i.imgur.com/K4sSC3X.png",
-            "image": "help14/magma:latest",
-            "name": "magma",
-            "ports": [
-                "7001:7001/tcp"
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume2/docker/magma",
-                    "container": "/app/data"
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
             "title": "Navidrome",
             "description": "Software that allows you to listen to your own digital music in the same way you would with services like Spotify, Apple Music and others.",
             "categories": [
@@ -498,76 +425,6 @@
                     "bind": "/volume1/Audio",
                     "container": "/music",
                     "readonly": true
-                }
-            ],
-            "restart_policy": "unless-stopped"
-        },
-        {
-            "type": 1,
-            "title": "Nginx Proxy Manager",
-            "description": "(Alpine) Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
-            "categories": [
-                "Proxy",
-                "Tools"
-            ],
-            "platform": "linux",
-            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nginx-proxy-manager.png",
-            "image": "gh0stofcerberos/nginx-proxy-manager:latest",
-            "name": "nginx-proxy-manager",
-            "note": "### To use privileged ports 'USER_ID' and 'GROUP_ID' values must be set to '0' (root)",
-            "ports": [
-                "80:80/tcp",
-                "8181:8181/tcp",
-                "443:443/tcp"
-            ],
-            "env": [
-                {
-                    "default": "1000",
-                    "label": "User ID",
-                    "name": "USER_ID",
-                    "description": "Docker host user ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "1000",
-                    "label": "Group ID",
-                    "name": "GROUP_ID",
-                    "description": "Docker host user group ID. Obtain using 'id username'."
-                },
-                {
-                    "default": "Europe/London",
-                    "label": "Time Zone",
-                    "name": "TZ",
-                    "description": "Set the time for the location of the container."
-                },
-                {
-                    "default": "0022",
-                    "label": "Set UMASK",
-                    "name": "UMASK",
-                    "description": "Mask that controls how file permissions are set for newly created files. The value of the mask is in octal notation. By default, the default umask value is '0022', meaning that newly created files are readable by everyone, but only writable by the owner. See the online umask calculator at http://wintelguy.com/umask-calc.pl."
-                },
-                {
-                    "default": "0",
-                    "label": "Disble IPv6 support",
-                    "name": "DISABLE_IPV6",
-                    "description": "When set to '1', IPv6 support is disabled. This is needed when IPv6 is not enabled/supported on the host."
-                }
-            ],
-            "volumes": [
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/config",
-                    "container": "/config"
-                },
-                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/custom",
-                    "container": "/config/nginx/custom"
-                },
-                                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/snippets",
-                    "container": "/config/nginx/snippets"
-                },
-                                {
-                    "bind": "/volume2/docker/nginx-proxy-manager/nginx/geoip",
-                    "container": "/config/nginx/geoip"
                 }
             ],
             "restart_policy": "unless-stopped"
