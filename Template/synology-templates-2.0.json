@@ -54,7 +54,7 @@
             "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/caddy.png",
             "image": "qvcr.uk/qorvium/caddy:latest",
             "name": "caddy",
-            "note": "Bind mount for '/srv' is only required if caddy will be serving static content directly.",
+            "note": "Bind mount for '/srv' is only required if caddy will be serving static content directly. Bind mount for '/var/log/caddy' is only required if using Crowdsec bouncer.",
             "ports": [
                 "80:80/tcp",
                 "443:443/tcp",
@@ -72,6 +72,10 @@
                 {
                     "bind": "/volume2/docker/caddy/data",
                     "container": "/data"
+                },
+                {
+                    "bind": "/volume2/docker/caddy/logs",
+                    "container": "/var/log/caddy"
                 },
                 {
                     "bind": "/volume2/docker/caddy/sites",
@@ -200,6 +204,60 @@
                 }
             ],
             "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Crowdsec",
+            "description": "An open-source, lightweight agent to detect and respond to bad behaviours.",
+            "categories": [
+                "Proxy",
+                "Security",
+                "Web",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/crowdsec.png",
+            "image": "crowdsecurity/crowdsec:latest",
+            "name": "crowdsec",
+            "note": "Access to application logs are required for Crowdsec to function properly. Add volume/bind mount for each application's logs to be monitored.",
+            "ports": [
+                "8080:8080/tcp",
+                "6060:6060/tcp"
+            ],
+            "env": [
+                {
+                    "default": "Europe/London",
+                    "label": "Time Zone",
+                    "name": "TZ",
+                    "description": "TimeZone used by the container. Timezone can also be set by mapping /etc/localtime between the host and the container."
+                },
+                {
+                    "default": "crowdsecurity/caddy",
+                    "label": "Collections",
+                    "name": "COLLECTIONS",
+                    "description": "Specify collections to install (by default 'crowdsecurity/linux' is installed). Use a space to separate multiple collections."
+                }
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume2/docker/crowdsec/config",
+                    "container": "/etc/crowdsec"
+                },
+                {
+                    "bind": "/volume2/docker/crowdsec/data",
+                    "container": "/var/lib/crowdsec/data"
+                },
+                {
+                    "bind": "/volume2/docker/crowdsec/_acquis.d",
+                    "container": "/etc/crowdsec/acquis.d"
+                },
+                {
+                    "bind": "/volume2/docker/caddy/logs",
+                    "container": "/logs/caddy",
+                    "readonly": true
+                }
+            ],
+            "restart_policy": "always"
         },
         {
             "type": 1,
