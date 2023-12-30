@@ -489,6 +489,30 @@
         },
         {
             "type": 1,
+            "title": "Readeck",
+            "description": "Readeck is an open source web application that lets you save content from the web so you can access it later and keep it forever.",
+            "categories": [
+                "Web",
+                "Archive",
+                "Other"
+            ],
+            "platform": "linux",
+            "logo": "https://readeck.org/media/logo.1cbb29bf.svg",
+            "image": "codeberg.org/readeck/readeck:latest",
+            "name": "readeck",
+            "ports": [
+                "8000:8000/tcp"
+            ],
+            "volumes": [
+                {
+                    "bind": "/volume1//Workspace/⌞readeck/data",
+                    "container": "/readeck"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
             "title": "Unmanic",
             "description": "Unmanic is a simple tool for optimising your file library. You can use it to convert your files into a single, uniform format, manage file movements based on timestamps, or execute custom commands against a file based on its file size.",
             "categories": [
