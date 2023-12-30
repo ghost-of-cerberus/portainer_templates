@@ -505,7 +505,7 @@
             ],
             "volumes": [
                 {
-                    "bind": "/volume1//Workspace/⌞readeck/data",
+                    "bind": "/volume2/docker/readeck/data",
                     "container": "/readeck"
                 }
             ],
