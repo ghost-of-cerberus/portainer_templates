@@ -497,7 +497,7 @@
                 "Other"
             ],
             "platform": "linux",
-            "logo": "https://readeck.org/media/logo.1cbb29bf.svg",
+            "logo": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/readeck.png",
             "image": "codeberg.org/readeck/readeck:latest",
             "name": "readeck",
             "ports": [
